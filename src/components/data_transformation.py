@@ -21,6 +21,9 @@ class DataTransformation:
         self.data_transormation_config=DataTransformationConfig()
 
     def get_data_transformation_object(self):
+        '''
+        This function is used to get the preprocessing object
+        '''
         try:
             numerical_cols=["writing_score","reading_score"]
             categorical_cols=['gender', 
@@ -38,9 +41,9 @@ class DataTransformation:
             )
             cat_pipeline=Pipeline(
                 steps=[
-                    ("Inputer",SimpleImputer(strategy="most_frequent")), # handle missing value
-                    ("OneHotEncoder",OneHotEncoder()), # handle categorical data
-                    ("StandardScaler",StandardScaler(with_mean=False)) # handle numerical data
+                    ("imputer",SimpleImputer(strategy="most_frequent")), # handle missing value
+                    ("OneHotEncoder",OneHotEncoder(handle_unknown='ignore')), # handle categorical data
+                    ("scaler",StandardScaler(with_mean=False)) # handle numerical data
 
                 ]
             )

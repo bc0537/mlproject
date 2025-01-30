@@ -32,7 +32,7 @@ class DataIngestion:
         logging.info("Data Ingestion Method")
 
         try:
-            df=pd.read_csv("//Users/bhanuprasadchetla/Desktop/aiml/ml_projects/end-end_basic_project/mlproject/notebook/stud.csv")
+            df=pd.read_csv("notebook/stud.csv")
             logging.info("Read dataset as dataframe")
 
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
