@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # import necessary libraries for Data Ingestion 
 import os
-import sys
-from src.exception import CustomException
-# from ..exception import CustomException
+
+#from src.exception import CustomException
+from ..exception import CustomException
 from src.logger import logging
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -40,9 +40,9 @@ class DataIngestion:
             logging.info("train test split executed")
             train_set,test_set=train_test_split(df,test_size=0.2,random_state=42)
 
-            df.to_csv(self.ingestion_config.train_data_path,index=False,header=True)
+            train_set.to_csv(self.ingestion_config.train_data_path,index=False,header=True)
             logging.info("train.csv file created in current directory")
-            df.to_csv(self.ingestion_config.test_data_path,index=False,header=True)
+            test_set.to_csv(self.ingestion_config.test_data_path,index=False,header=True)
             logging.info("test.csv file created in current directory")
 
             logging.info("Data Ingestion Completed Sucessfully")
