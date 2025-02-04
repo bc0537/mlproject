@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # import necessary libraries for Data Ingestion 
 import os
-
-#from src.exception import CustomException
+import sys
+# from src.exception import CustomException
 from ..exception import CustomException
 from src.logger import logging
 import pandas as pd
